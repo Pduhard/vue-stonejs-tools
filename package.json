@@ -30,6 +30,7 @@
     "url": "https://github.com/flozz/stonejs-tools/issues"
   },
   "dependencies": {
+    "@vue/compiler-sfc": "^3.4.27",
     "async": "^3.2.0",
     "cheerio": "^1.0.0-rc.3",
     "cli": "^1.0.1",
