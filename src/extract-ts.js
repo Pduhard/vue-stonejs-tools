@@ -1,8 +1,10 @@
 const ts = require("typescript");
 const fs = require("fs");
 
-function trimQuotes(str) {
-  return str.replace(/^['"]|['"]$/g, '');
+function _cleanString(str) {
+  // remove \n \t
+  str = str.replace(/[\t\n]/g, "");
+  return new Function("return " + str + ";")();  // jshint ignore:line
 }
 
 function extractTsStrings(sourceFile, functionsNames) {
@@ -14,7 +16,7 @@ function extractTsStrings(sourceFile, functionsNames) {
       const children = node.getChildren();
       if (!functionsNames.includes(children[0].text)) return;
 
-      const string = trimQuotes(children[2].getText());
+      const string = _cleanString(children[2].getText());
       strings[string] = true
     }
 
@@ -22,6 +24,7 @@ function extractTsStrings(sourceFile, functionsNames) {
   }
 
   visit(sourceFile);
+  console.log(strings);
   return strings;
 }
 
