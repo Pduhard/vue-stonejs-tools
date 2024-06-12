@@ -855,13 +855,13 @@ describe("stonejs extract:", function() {
             )).to.have.key("hello 0.01");
         });
 
-        // it("can extract concatenated translatable string (multilines)", function() {
-        //     expect(extractTs.extractTsStrings(
-        //         "_('hello ' +\n'world')",
+        it("can extract concatenated translatable string (multilines)", function() {
+            expect(extractTs.extractTsStrings(
+                "_('hello ' +\n'world')",
 
-        //         ["_", "gettext", "lazyGettext"], [], [], []
-        //     )).to.have.key("hello world");
-        // });
+                ["_", "gettext", "lazyGettext"], [], [], []
+            )).to.have.key("hello world");
+        });
 
         // it("can extract concatenated translatable string with comment in the middle", function() {
         //     expect(extractTs.extractTsStrings(

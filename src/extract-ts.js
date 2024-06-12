@@ -2,9 +2,7 @@ const ts = require("typescript");
 const fs = require("fs");
 
 function _cleanString(str) {
-  // remove \n \t
-  str = str.replace(/[\t\n]/g, "");
-  return new Function("return " + str + ";")();  // jshint ignore:line
+  return new Function("return " + str.replace(/\n/g, "") + ";")();  // jshint ignore:line
 }
 
 function extractTsStrings(sourceFile, functionsNames) {
