@@ -783,13 +783,13 @@ describe("stonejs extract:", function() {
             )).to.have.key("hello");
         });
 
-        // it("can extract translatable string with escaped quote", function() {
-        //     expect(extractTs.extractTsStrings(
-        //         "_('rock \\'n roll')",
+        it("can extract translatable string with escaped quote", function() {
+            expect(extractTs.extractTsStrings(
+                "_('rock \\'n roll')",
 
-        //         ["_", "gettext", "lazyGettext"], [], [], []
-        //     )).to.have.key("rock 'n roll");
-        // });
+                ["_", "gettext", "lazyGettext"], [], [], []
+            )).to.have.key("rock 'n roll");
+        });
 
         // it("can extract translatable string with hexadecimal escaped char", function() {
         //     expect(extractTs.extractTsStrings(
