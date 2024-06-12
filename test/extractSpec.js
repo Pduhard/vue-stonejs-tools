@@ -791,13 +791,13 @@ describe("stonejs extract:", function() {
             )).to.have.key("rock 'n roll");
         });
 
-        // it("can extract translatable string with hexadecimal escaped char", function() {
-        //     expect(extractTs.extractTsStrings(
-        //         "_('hello\\x40world')",
+        it("can extract translatable string with hexadecimal escaped char", function() {
+            expect(extractTs.extractTsStrings(
+                "_('hello\\x40world')",
 
-        //         ["_", "gettext", "lazyGettext"], [], [], []
-        //     )).to.have.key("hello@world");
-        // });
+                ["_", "gettext", "lazyGettext"], [], [], []
+            )).to.have.key("hello@world");
+        });
 
         // it("can extract concatenated translatable string", function() {
         //     expect(extractTs.extractTsStrings(
