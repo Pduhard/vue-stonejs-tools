@@ -827,13 +827,13 @@ describe("stonejs extract:", function() {
             )).to.have.key("hello 10000");
         });
 
-        // it("can extract translatable string concatenated with integer (hexa)", function() {
-        //     expect(extractTs.extractTsStrings(
-        //         "_('hello ' + 0xFF)",
+        it("can extract translatable string concatenated with integer (hexa)", function() {
+            expect(extractTs.extractTsStrings(
+                "_('hello ' + 0xFF)",
 
-        //         ["_", "gettext", "lazyGettext"], [], [], []
-        //     )).to.have.key("hello 255");
-        // });
+                ["_", "gettext", "lazyGettext"], [], [], []
+            )).to.have.key("hello 255");
+        });
 
         // it("can extract translatable string concatenated with float", function() {
         //     expect(extractTs.extractTsStrings(
