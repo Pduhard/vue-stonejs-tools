@@ -807,25 +807,25 @@ describe("stonejs extract:", function() {
             )).to.have.key("hello world");
         });
 
-        // it("can extract translatable string concatenated with integer", function() {
-        //     expect(extractTs.extractTsStrings(
-        //         "_('hello ' + 8)",
+        it("can extract translatable string concatenated with integer", function() {
+            expect(extractTs.extractTsStrings(
+                "_('hello ' + 8)",
 
-        //         ["_", "gettext", "lazyGettext"], [], [], []
-        //     )).to.have.key("hello 8");
+                ["_", "gettext", "lazyGettext"], [], [], []
+            )).to.have.key("hello 8");
 
-        //     expect(extractTs.extractTsStrings(
-        //         "_('hello ' + 8.0)",
+            expect(extractTs.extractTsStrings(
+                "_('hello ' + 8.0)",
 
-        //         ["_", "gettext", "lazyGettext"], [], [], []
-        //     )).to.have.key("hello 8");
+                ["_", "gettext", "lazyGettext"], [], [], []
+            )).to.have.key("hello 8");
 
-        //     expect(extractTs.extractTsStrings(
-        //         "_('hello ' + 10e3)",
+            expect(extractTs.extractTsStrings(
+                "_('hello ' + 10e3)",
 
-        //         ["_", "gettext", "lazyGettext"], [], [], []
-        //     )).to.have.key("hello 10000");
-        // });
+                ["_", "gettext", "lazyGettext"], [], [], []
+            )).to.have.key("hello 10000");
+        });
 
         // it("can extract translatable string concatenated with integer (hexa)", function() {
         //     expect(extractTs.extractTsStrings(
