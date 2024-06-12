@@ -835,25 +835,25 @@ describe("stonejs extract:", function() {
             )).to.have.key("hello 255");
         });
 
-        // it("can extract translatable string concatenated with float", function() {
-        //     expect(extractTs.extractTsStrings(
-        //         "_('hello ' + 3.14)",
+        it("can extract translatable string concatenated with float", function() {
+            expect(extractTs.extractTsStrings(
+                "_('hello ' + 3.14)",
 
-        //         ["_", "gettext", "lazyGettext"], [], [], []
-        //     )).to.have.key("hello 3.14");
+                ["_", "gettext", "lazyGettext"], [], [], []
+            )).to.have.key("hello 3.14");
 
-        //     expect(extractTs.extractTsStrings(
-        //         "_('hello ' + .3)",
+            expect(extractTs.extractTsStrings(
+                "_('hello ' + .3)",
 
-        //         ["_", "gettext", "lazyGettext"], [], [], []
-        //     )).to.have.key("hello 0.3");
+                ["_", "gettext", "lazyGettext"], [], [], []
+            )).to.have.key("hello 0.3");
 
-        //     expect(extractTs.extractTsStrings(
-        //         "_('hello ' + 10e-3)",
+            expect(extractTs.extractTsStrings(
+                "_('hello ' + 10e-3)",
 
-        //         ["_", "gettext", "lazyGettext"], [], [], []
-        //     )).to.have.key("hello 0.01");
-        // });
+                ["_", "gettext", "lazyGettext"], [], [], []
+            )).to.have.key("hello 0.01");
+        });
 
         // it("can extract concatenated translatable string (multilines)", function() {
         //     expect(extractTs.extractTsStrings(
