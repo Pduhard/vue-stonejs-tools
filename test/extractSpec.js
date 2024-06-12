@@ -362,16 +362,16 @@ describe("stonejs extract:", function() {
             )).not.to.have.key("hello");
         });
 
-        // it("does not extract commented translatable strings (// comment)", function() {
-        //     expect(extract.extractJsStrings(
-        //         "// _('hello')",
+        it("does not extract commented translatable strings (// comment)", function() {
+            expect(extractTs.extractTsStrings(
+                "// _('hello')",
 
-        //         ["_", "gettext", "lazyGettext"], [], [], []
-        //     )).not.to.have.key("hello");
-        // });
+                ["_", "gettext", "lazyGettext"], [], [], []
+            )).not.to.have.key("hello");
+        });
 
         // it("does not extract commented translatable strings (/* comment */)", function() {
-        //     expect(extract.extractJsStrings(
+        //     expect(extractTs.extractTsStrings(
         //         "/*\n * _('hello')\n */",
 
         //         ["_", "gettext", "lazyGettext"], [], [], []
@@ -379,7 +379,7 @@ describe("stonejs extract:", function() {
         // });
 
         // it("ignore translatable string concatenated with an idenifier", function() {
-        //     expect(extract.extractJsStrings(
+        //     expect(extractTs.extractTsStrings(
         //         "_('hello' + identifier)",
 
         //         ["_", "gettext", "lazyGettext"], [], [], []
@@ -387,7 +387,7 @@ describe("stonejs extract:", function() {
         // });
 
         // it("can extract simple translatable string (single quote)", function() {
-        //     expect(extract.extractJsStrings(
+        //     expect(extractTs.extractTsStrings(
         //         "_('hello')",
 
         //         ["_", "gettext", "lazyGettext"], [], [], []
@@ -395,7 +395,7 @@ describe("stonejs extract:", function() {
         // });
 
         // it("can extract simple translatable string (double quote)", function() {
-        //     expect(extract.extractJsStrings(
+        //     expect(extractTs.extractTsStrings(
         //         "_(\"hello\")",
 
         //         ["_", "gettext", "lazyGettext"], [], [], []
@@ -403,7 +403,7 @@ describe("stonejs extract:", function() {
         // });
 
         // it("can extract simple translatable string (with fuzzy whitespaces)", function() {
-        //     expect(extract.extractJsStrings(
+        //     expect(extractTs.extractTsStrings(
         //         "_(\t\n \"hello\"  )",
 
         //         ["_", "gettext", "lazyGettext"], [], [], []
@@ -411,7 +411,7 @@ describe("stonejs extract:", function() {
         // });
 
         // it("can extract translatable string with escaped quote", function() {
-        //     expect(extract.extractJsStrings(
+        //     expect(extractTs.extractTsStrings(
         //         "_('rock \\'n roll')",
 
         //         ["_", "gettext", "lazyGettext"], [], [], []
@@ -419,7 +419,7 @@ describe("stonejs extract:", function() {
         // });
 
         // it("can extract translatable string with hexadecimal escaped char", function() {
-        //     expect(extract.extractJsStrings(
+        //     expect(extractTs.extractTsStrings(
         //         "_('hello\\x40world')",
 
         //         ["_", "gettext", "lazyGettext"], [], [], []
@@ -427,7 +427,7 @@ describe("stonejs extract:", function() {
         // });
 
         // it("can extract concatenated translatable string", function() {
-        //     expect(extract.extractJsStrings(
+        //     expect(extractTs.extractTsStrings(
         //         "_('hello ' + 'world')",
 
         //         ["_", "gettext", "lazyGettext"], [], [], []
@@ -435,19 +435,19 @@ describe("stonejs extract:", function() {
         // });
 
         // it("can extract translatable string concatenated with integer", function() {
-        //     expect(extract.extractJsStrings(
+        //     expect(extractTs.extractTsStrings(
         //         "_('hello ' + 8)",
 
         //         ["_", "gettext", "lazyGettext"], [], [], []
         //     )).to.have.key("hello 8");
 
-        //     expect(extract.extractJsStrings(
+        //     expect(extractTs.extractTsStrings(
         //         "_('hello ' + 8.0)",
 
         //         ["_", "gettext", "lazyGettext"], [], [], []
         //     )).to.have.key("hello 8");
 
-        //     expect(extract.extractJsStrings(
+        //     expect(extractTs.extractTsStrings(
         //         "_('hello ' + 10e3)",
 
         //         ["_", "gettext", "lazyGettext"], [], [], []
@@ -455,7 +455,7 @@ describe("stonejs extract:", function() {
         // });
 
         // it("can extract translatable string concatenated with integer (hexa)", function() {
-        //     expect(extract.extractJsStrings(
+        //     expect(extractTs.extractTsStrings(
         //         "_('hello ' + 0xFF)",
 
         //         ["_", "gettext", "lazyGettext"], [], [], []
@@ -463,19 +463,19 @@ describe("stonejs extract:", function() {
         // });
 
         // it("can extract translatable string concatenated with float", function() {
-        //     expect(extract.extractJsStrings(
+        //     expect(extractTs.extractTsStrings(
         //         "_('hello ' + 3.14)",
 
         //         ["_", "gettext", "lazyGettext"], [], [], []
         //     )).to.have.key("hello 3.14");
 
-        //     expect(extract.extractJsStrings(
+        //     expect(extractTs.extractTsStrings(
         //         "_('hello ' + .3)",
 
         //         ["_", "gettext", "lazyGettext"], [], [], []
         //     )).to.have.key("hello 0.3");
 
-        //     expect(extract.extractJsStrings(
+        //     expect(extractTs.extractTsStrings(
         //         "_('hello ' + 10e-3)",
 
         //         ["_", "gettext", "lazyGettext"], [], [], []
@@ -483,7 +483,7 @@ describe("stonejs extract:", function() {
         // });
 
         // it("can extract concatenated translatable string (multilines)", function() {
-        //     expect(extract.extractJsStrings(
+        //     expect(extractTs.extractTsStrings(
         //         "_('hello ' +\n'world')",
 
         //         ["_", "gettext", "lazyGettext"], [], [], []
@@ -491,7 +491,7 @@ describe("stonejs extract:", function() {
         // });
 
         // it("can extract concatenated translatable string with comment in the middle", function() {
-        //     expect(extract.extractJsStrings(
+        //     expect(extractTs.extractTsStrings(
         //         "_('hello ' /* everybody */ + 'world')",
 
         //         ["_", "gettext", "lazyGettext"], [], [], []
@@ -499,7 +499,7 @@ describe("stonejs extract:", function() {
         // });
 
         // it("can extract multiline translatable strings (with escaped \\n)", function() {
-        //     expect(extract.extractJsStrings(
+        //     expect(extractTs.extractTsStrings(
         //         "_('hello \\\nworld')",
 
         //         ["_", "gettext", "lazyGettext"], [], [], []
@@ -507,7 +507,7 @@ describe("stonejs extract:", function() {
         // });
 
         // it("can extract multiline translatable strings (with escaped \\r\\n)", function() {
-        //     expect(extract.extractJsStrings(
+        //     expect(extractTs.extractTsStrings(
         //         "_('hello \\\r\nworld')",
 
         //         ["_", "gettext", "lazyGettext"], [], [], []
@@ -515,7 +515,7 @@ describe("stonejs extract:", function() {
         // });
 
         // it("can extract translatable strings with replacement", function() {
-        //     expect(extract.extractJsStrings(
+        //     expect(extractTs.extractTsStrings(
         //         "_('hello {name}', {name: 'John'})",
 
         //         ["_", "gettext", "lazyGettext"], [], [], []
@@ -523,7 +523,7 @@ describe("stonejs extract:", function() {
         // });
 
         // it("can extract translatable strings marked with 'methods' instead of functions", function() {
-        //     expect(extract.extractJsStrings(
+        //     expect(extractTs.extractTsStrings(
         //         "Stone.gettext('hello')",
 
         //         ["_", "gettext", "lazyGettext"], [], [], []
@@ -531,7 +531,7 @@ describe("stonejs extract:", function() {
         // });
 
         // it("returns the line number of extracted translatable strings", function() {
-        //     expect(extract.extractJsStrings(
+        //     expect(extractTs.extractTsStrings(
         //         "\n\n_('hello')",
 
         //         ["_", "gettext", "lazyGettext"], [], [], []
@@ -539,7 +539,7 @@ describe("stonejs extract:", function() {
         // });
 
         // it("can group duplicated translatable string", function() {
-        //     expect(extract.extractJsStrings(
+        //     expect(extractTs.extractTsStrings(
         //         "_('hello');\n_('hello');",
 
         //         ["_", "gettext", "lazyGettext"], [], [], []
@@ -547,7 +547,7 @@ describe("stonejs extract:", function() {
         // });
 
         // it("can handle strings with unicode characters", function() {
-        //     expect(extract.extractJsStrings(
+        //     expect(extractTs.extractTsStrings(
         //         "_('⚠ Voici une chaîne avec des caractères spéciaux ☺')",
 
         //         ["_", "gettext", "lazyGettext"], [], [], []
@@ -556,7 +556,7 @@ describe("stonejs extract:", function() {
 
         // describe("plural forms support", function() {
         //     it("can extract singular form as key", function() {
-        //         expect(extract.extractJsStrings(
+        //         expect(extractTs.extractTsStrings(
         //             "ngettext('apple', 'apples', 2)",
 
         //             ["_", "gettext", "lazyGettext"], ["ngettext", "lazyNgettext"], [], []
@@ -564,7 +564,7 @@ describe("stonejs extract:", function() {
         //     });
 
         //     it("can extract plural form", function() {
-        //         expect(extract.extractJsStrings(
+        //         expect(extractTs.extractTsStrings(
         //             "ngettext('apple', 'apples', 2)",
 
         //             ["_", "gettext", "lazyGettext"], ["ngettext", "lazyNgettext"], [], []
@@ -575,7 +575,7 @@ describe("stonejs extract:", function() {
         // describe("gettext noop support", function() {
 
         //     it("extract gettext noop", function() {
-        //         expect(extract.extractJsStrings(
+        //         expect(extractTs.extractTsStrings(
         //             "gettext_noop('hello')",
 
         //             ["N_", "gettext_noop"], [], [], []
@@ -583,7 +583,7 @@ describe("stonejs extract:", function() {
         //     });
 
         //     it("extract gettext noop with shorthand", function() {
-        //         expect(extract.extractJsStrings(
+        //         expect(extractTs.extractTsStrings(
         //             "N_('hello')",
 
         //             ["N_", "gettext_noop"], [], [], []
@@ -593,7 +593,7 @@ describe("stonejs extract:", function() {
 
         // describe("context support", function() {
         //     it("can extract context", function() {
-        //         var result = extract.extractJsStrings(
+        //         var result = extractTs.extractTsStrings(
         //             "pgettext('back of an object', 'back');",
 
         //             [], [], ["pgettext", "lazyPgettext"], []
@@ -603,7 +603,7 @@ describe("stonejs extract:", function() {
         //     });
 
         //     it("can have two strings with same context", function() {
-        //         var result = extract.extractJsStrings(
+        //         var result = extractTs.extractTsStrings(
         //             "pgettext('back of an object', 'back'); pgettext('back of an object', 'Back');",
 
         //             [], [], ["pgettext", "lazyPgettext"], []
@@ -614,7 +614,7 @@ describe("stonejs extract:", function() {
         //     });
 
         //     it("can have a string with two different contexts", function() {
-        //         var result = extract.extractJsStrings(
+        //         var result = extractTs.extractTsStrings(
         //             "pgettext('back of an object', 'back'); pgettext('getting back', 'back');",
 
         //             [], [], ["pgettext", "lazyPgettext"], []
@@ -624,7 +624,7 @@ describe("stonejs extract:", function() {
         //     });
 
         //     it("can have a string with and without context", function() {
-        //         var result = extract.extractJsStrings(
+        //         var result = extractTs.extractTsStrings(
         //             "_('back'); pgettext('back of an object', 'back');",
 
         //             ["_", "gettext", "lazyGettext"], [], ["pgettext", "lazyPgettext"], []
@@ -635,7 +635,7 @@ describe("stonejs extract:", function() {
 
         //     it("doesn't count require in the functions to parse", function() {
         //         // was a real bug I had, so to be sure there is no regression
-        //         var result = extract.extractJsStrings(
+        //         var result = extractTs.extractTsStrings(
         //             "const { pgettext } = require('stonejs'); gettext('coucou');",
 
         //             ["gettext"], [], ["pgettext"], []
@@ -647,7 +647,7 @@ describe("stonejs extract:", function() {
 
         // describe("context and plural support", function() {
         //     it("can extract context", function() {
-        //         var result = extract.extractJsStrings(
+        //         var result = extractTs.extractTsStrings(
         //             "npgettext('context', 'file', 'files');",
 
         //             [], [], [], ["npgettext", "lazyNpgettext"]
@@ -658,7 +658,7 @@ describe("stonejs extract:", function() {
         //     });
 
         //     it("can have two strings with same context", function() {
-        //         var result = extract.extractJsStrings(
+        //         var result = extractTs.extractTsStrings(
         //             "npgettext('context', 'file', 'files'); npgettext('context', 'apple', 'apples');",
 
         //             [], [], [], ["npgettext", "lazyNpgettext"]
@@ -673,7 +673,7 @@ describe("stonejs extract:", function() {
         //     });
 
         //     it("can have a string with two different contexts", function() {
-        //         var result = extract.extractJsStrings(
+        //         var result = extractTs.extractTsStrings(
         //             "npgettext('context1', 'file', 'files'); npgettext('context2', 'file', 'files');",
 
         //             [], [], [], ["npgettext", "lazyNpgettext"]
@@ -683,7 +683,7 @@ describe("stonejs extract:", function() {
         //     });
 
         //     it("can have a string with and without context", function() {
-        //         var result = extract.extractJsStrings(
+        //         var result = extractTs.extractTsStrings(
         //             "_('file'); npgettext('context', 'file', 'files');",
 
         //             ["_", "gettext", "lazyGettext"], [], [], ["npgettext", "lazyNpgettext"]
