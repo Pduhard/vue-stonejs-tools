@@ -767,13 +767,13 @@ describe("stonejs extract:", function() {
             )).to.have.key("hello");
         });
 
-        // it("can extract simple translatable string (double quote)", function() {
-        //     expect(extractTs.extractTsStrings(
-        //         "_(\"hello\")",
+        it("can extract simple translatable string (double quote)", function() {
+            expect(extractTs.extractTsStrings(
+                "_(\"hello\")",
 
-        //         ["_", "gettext", "lazyGettext"], [], [], []
-        //     )).to.have.key("hello");
-        // });
+                ["_", "gettext", "lazyGettext"], [], [], []
+            )).to.have.key("hello");
+        });
 
         // it("can extract simple translatable string (with fuzzy whitespaces)", function() {
         //     expect(extractTs.extractTsStrings(
