@@ -799,13 +799,13 @@ describe("stonejs extract:", function() {
             )).to.have.key("hello@world");
         });
 
-        // it("can extract concatenated translatable string", function() {
-        //     expect(extractTs.extractTsStrings(
-        //         "_('hello ' + 'world')",
+        it("can extract concatenated translatable string", function() {
+            expect(extractTs.extractTsStrings(
+                "_('hello ' + 'world')",
 
-        //         ["_", "gettext", "lazyGettext"], [], [], []
-        //     )).to.have.key("hello world");
-        // });
+                ["_", "gettext", "lazyGettext"], [], [], []
+            )).to.have.key("hello world");
+        });
 
         // it("can extract translatable string concatenated with integer", function() {
         //     expect(extractTs.extractTsStrings(
